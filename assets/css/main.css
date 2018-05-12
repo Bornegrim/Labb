@@ -1,0 +1,52 @@
+body {
+    background-color: white;
+    font-family: "franklin gothic"
+}
+
+.center {
+  text-align: center;
+}
+
+h2 {
+  color: navy;
+  margin-left: 20px;
+}
+
+h1 {
+    color: navy;
+    margin-left: 20px;
+}
+
+p {
+  margin-left: 20px;
+}
+
+form {
+  margin-left: 20px;
+}
+
+input {
+  width: 25%;
+}
+
+input.message {
+  width: 50%;
+  height: 200px;
+}
+
+div.hd {
+  background-color: white;
+}
+
+div.name {
+  text-align: center;
+  background-color:;
+  color: navy;
+  font-size: 30px;
+
+}
+div.post {
+  max-width: 500px;
+    margin: 20px;
+    font-size: 20px;
+}
