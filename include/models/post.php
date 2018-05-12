@@ -1,6 +1,6 @@
 <?php
   class Post extends DB {
-    
+
     public function getAllPosts() {
 
       $db = new Db();
@@ -15,6 +15,20 @@
           $data[] = $row;
         }
         return $data;
+      }
+    }
+
+    public function createPost($message) {
+
+      $db = new Db();
+      $conn = $db->connect();
+      $email = $_SESSION['Email'];
+      $post = mysqli_real_escape_string($conn, $message);
+
+
+      if (!Empty($post)) {
+        $sql = "INSERT INTO posts(post, email)VALUES('$post', '$email')";
+        mysqli_query($conn, $sql);
       }
     }
   }

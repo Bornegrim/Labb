@@ -20,7 +20,7 @@ if (!isset($_SESSION['Email'])) {
     <p class="center">Welcome to the best message board!</p>
   </div>
   <div>
-    <form class="center" name="form" action="submit.php" method="post" onsubmit="return checkPost();">
+    <form class="center" name="form" action="posts-create.php" method="post" onsubmit="return checkPost();">
       Message : <br>
       <textarea rows="10" cols="64" class="message" type="text" id ="post" name="post"> </textarea><br>
       <input type="submit" name="submit" value="submit">

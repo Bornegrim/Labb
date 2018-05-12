@@ -1,39 +1,16 @@
 <?php
+
 session_start();
-
-$uname = "Bornelu";
-$pass = "Gitgud@@@123";
-$host = "n3plcpnl0118.prod.ams3.secureserver.net";
-$dbname = "Bornegrim_Labb";
-$tbl_name = "posts";
-
-$connection = new mysqli($host, $uname, $pass, $dbname);
-
-$post = "";
-
-function test_input($data) {
-$data = trim($data);
-$data = stripslashes($data);
-$data = htmlspecialchars($data);
-return $data;
-}
+include 'include/models/db.php';
+include 'include/models/post.php';
 
 if (isset($_POST['submit'])) {
 
-  $email = $_SESSION['Email'];
+  $message = $_POST['post'];
 
-  if (!Empty($_POST['post'])) {
-    $post = test_input(mysqli_real_escape_string($connection,$_POST['post']));
-  }
-
-  if (!Empty($post)) {
-    $query = "INSERT INTO $tbl_name(post, email)VALUES('$post', '$email')";
-    $result = mysqli_query($connection, $query);
-  }
-
+  $post = new Post();
+  $allPosts = $post-> createPost($message);
   }
 
 header("Location: index.php");
 exit();
-
-?>
