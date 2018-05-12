@@ -12,8 +12,8 @@ function checkPost() {
 }
 
 function checkLogin() {
-  var email = document.getElementById("emailreg").value;
-  var password = document.getElementById("passwordreg").value;
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("password").value;
   var checkEmail = email.trim();
   var checkpassword = password.trim();
   var atpos = email.indexOf("@");

@@ -7,8 +7,8 @@ if (isset($_POST['login'])) {
   include 'include/models/db.php';
   include 'include/models/user.php';
 
-  $email = $_POST['emaillogin'];
-  $password = $_POST['passwordlogin'];
+  $email = $_POST['email'];
+  $password = $_POST['password'];
 
   $user = new User();
   $login = $user->login($email, $password);

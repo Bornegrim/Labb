@@ -4,6 +4,7 @@ session_start();
 if (!isset($_SESSION['Email'])) {
   header('Location: login.php');
 }
+include 'include/views/_header.php'
 ?>
 <!doctype html>
 <html>
@@ -14,11 +15,12 @@ if (!isset($_SESSION['Email'])) {
       <title >Message Board</title>
   </head>
   <body>
-    <?php include 'posts.php' ?>
+
     <div>
     <h1 class="center">Message board</h1>
     <p class="center">Welcome to the best message board!</p>
   </div>
+  <?php include 'posts.php' ?>
   <div>
     <form class="center" name="form" action="posts-create.php" method="post" onsubmit="return checkPost();">
       Message : <br>
