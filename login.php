@@ -1,6 +1,6 @@
 <?php
 
-  include 'include/bootstrap.php';
+  require 'include/bootstrap.php';
   $session = $authorizer->sessionExist('Email');
 
   if ($session) {

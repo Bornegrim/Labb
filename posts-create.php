@@ -1,9 +1,9 @@
 <?php
 
-include 'include/bootstrap.php';
+require 'include/bootstrap.php';
 
 if (isset($_POST['submit'])) {
-  
+
   $post = new Post();
 
   $message = $_POST['post'];

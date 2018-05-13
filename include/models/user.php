@@ -10,7 +10,7 @@ class User extends Db {
     $emaillogin = mysqli_real_escape_string($conn, $email);
     $passwordlogin = mysqli_real_escape_string($conn, $password);
 
-    $result = $db->getEmail($emaillogin);
+    $result = $db->getUser($emaillogin);
 
     if (mysqli_num_rows($result) == 1) {
       $userdata = mysqli_fetch_array($result);
@@ -19,11 +19,7 @@ class User extends Db {
       $inputpasswordhashed = md5($passwordlogin .= $salt);
     }
 
-    if ($hashedpass === $inputpasswordhashed) {
-      return true;
-    } else {
-      return false;
-    }
+    return ($hashedpass === $inputpasswordhashed);
   }
 
   private function test_email($data) {

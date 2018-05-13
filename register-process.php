@@ -1,8 +1,8 @@
 <?php
 
   if (isset($_POST['reg'])) {
-    
-    include 'include/bootstrap.php';
+
+    require 'include/bootstrap.php';
 
     $email = $_POST['emailreg'];
     $password = $_POST['passwordreg'];
