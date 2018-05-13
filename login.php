@@ -1,10 +1,14 @@
 <?php
-  session_start();
 
-  if (isset($_SESSION['Email'])) {
+  include 'include/models/authorizer.php';
+
+  $authorizer = new Authorizer();
+  $session = $authorizer->sessionExist('Email');
+
+  if ($session) {
     header('Location: index.php');
   } else if (isset($_GET['loginfail'])) {
     echo "Email or password is incorrect!";
   }
-
+  
   include 'include/views/login.php';

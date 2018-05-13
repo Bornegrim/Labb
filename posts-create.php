@@ -1,15 +1,18 @@
 <?php
 
-session_start();
 include 'include/models/db.php';
 include 'include/models/post.php';
+include 'include/models/authorizer.php';
 
 if (isset($_POST['submit'])) {
 
-  $message = $_POST['post'];
 
   $post = new Post();
-  $allPosts = $post-> createPost($message);
+  $authorizer = new Authorizer();
+
+  $message = $_POST['post'];
+  $email = $authorizer->get('Email');
+  $allPosts = $post-> createPost($message, $email);
   }
 
 header("Location: index.php");

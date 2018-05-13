@@ -1,9 +1,13 @@
 <?php
-session_start();
+include 'include/models/authorizer.php';
 
-if (!isset($_SESSION['Email'])) {
+$authorizer = new Authorizer();
+$session = $authorizer->sessionExist('Email');
+
+if (!$session) {
   header('Location: login.php');
 }
+
 include 'include/views/_header.php'
 ?>
 <!doctype html>
@@ -15,7 +19,6 @@ include 'include/views/_header.php'
       <title >Message Board</title>
   </head>
   <body>
-
     <div>
     <h1 class="center">Message board</h1>
     <p class="center">Welcome to the best message board!</p>
@@ -29,4 +32,7 @@ include 'include/views/_header.php'
     </form>
 
   </body>
+
+  <?php  include 'include/views/_footer.php' ?>
+
 </html>

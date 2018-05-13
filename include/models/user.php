@@ -27,7 +27,7 @@ class User extends Db {
     }
   }
 
-  function test_email($data) {
+  private function test_email($data) {
     $atpos = strpos($data, "@");
     $dotpos = strripos($data, ".");
     if ($atpos === false || $dotpos === false) {
@@ -41,7 +41,7 @@ class User extends Db {
     }
   }
 
-  function salt($length = 10) {
+  private function salt($length = 10) {
       $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
       $charactersLength = strlen($characters);
       $salt = '';

@@ -18,11 +18,10 @@
       }
     }
 
-    public function createPost($message) {
+    public function createPost($message, $email) {
 
       $db = new Db();
       $conn = $db->connect();
-      $email = $_SESSION['Email'];
       $post = mysqli_real_escape_string($conn, $message);
 
 

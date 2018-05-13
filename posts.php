@@ -5,15 +5,13 @@ include 'include/models/post.php';
 $post = new Post();
 $allPosts = $post-> getAllPosts();
 
-echo '<div class="center">';
-foreach ($allPosts as $data) {
-  echo '<div class="center"> ';
-  echo $data['email'] . ":";
+echo '<div class="post">';
+foreach ($allPosts as $post) {
+  echo '<div class="post"> ';
+  echo '<div class="name"> ';
+  echo $post['email'] . ": ";
   echo "</div>";
-  echo '<div class="center">';
-  echo $data['post'];
+  echo $post['post'];
   echo "</div>";
 }
   echo '</div>';
-
-  

@@ -1,8 +1,34 @@
 body {
     background-color: pink;
-    font-family: "franklin gothic"
+    font-family: "franklin gothic";
+    padding-bottom: 100px;
+    padding-top: 30px;
 }
 
+header {
+  height:24px;
+  width: 100%;
+  background-image: none;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  position: fixed;
+  top: 0pt;
+  left: 0pt;
+}
+
+footer {
+
+  height:24px;
+  width: 100%;
+  background-image: none;
+  background-repeat: repeat;
+  background-attachment: scroll;
+  background-position: 0% 0%;
+  position: fixed;
+  bottom: 0pt;
+  left: 0pt;
+}
 .center {
   text-align: center;
   margin-top: 10px;
@@ -10,20 +36,12 @@ body {
 
 h2 {
   color: navy;
-  margin-left: 20px;
+
 }
 
 h1 {
     color: navy;
-    margin-left: 20px;
-}
 
-p {
-  margin-left: 20px;
-}
-
-form {
-  margin-left: 20px;
 }
 
 input {
@@ -40,14 +58,12 @@ div.hd {
 }
 
 div.name {
-  text-align: center;
-  background-color:;
-  color: navy;
+  color: red;
   font-size: 30px;
-
 }
 div.post {
+  background-color: white;
   max-width: 500px;
-    margin: 20px;
-    font-size: 20px;
+  margin: auto;
+  font-size: 20px;
 }

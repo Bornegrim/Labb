@@ -1,6 +1,7 @@
 <?php
 
-session_start();
+include 'include/models/authorizer.php';
+$authorizer = new Authorizer();
 
 if (isset($_POST['login'])) {
 
@@ -14,7 +15,7 @@ if (isset($_POST['login'])) {
   $login = $user->login($email, $password);
 
   if ($login) {
-    $_SESSION['Email'] = $email;
+    $authorizer->set($email);
     header("Location: index.php");
     } else {
       header("Location: login.php?loginfail=1");
