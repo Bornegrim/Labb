@@ -1,8 +1,8 @@
 <?php
 
   if (isset($_POST['reg'])) {
-    include 'include/models/db.php';
-    include 'include/models/user.php';
+    
+    include 'include/bootstrap.php';
 
     $email = $_POST['emailreg'];
     $password = $_POST['passwordreg'];

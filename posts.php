@@ -1,9 +1,11 @@
 <?php
-include 'include/models/db.php';
-include 'include/models/post.php';
 
 $post = new Post();
 $allPosts = $post-> getAllPosts();
+
+include 'include/views/posts.php';
+
+include 'include/views/_posts-list.php';
 
 echo '<div class="post">';
 foreach ($allPosts as $post) {
@@ -14,4 +16,6 @@ foreach ($allPosts as $post) {
   echo $post['post'];
   echo "</div>";
 }
-  echo '</div>';
+echo '</div>';
+
+include 'include/views/_posts-new.php';

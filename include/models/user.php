@@ -10,8 +10,7 @@ class User extends Db {
     $emaillogin = mysqli_real_escape_string($conn, $email);
     $passwordlogin = mysqli_real_escape_string($conn, $password);
 
-    $sql = "SELECT Email, Password, Salt FROM User WHERE Email = '$emaillogin'";
-    $result = mysqli_query($conn, $sql);
+    $result = $db->getEmail($emaillogin);
 
     if (mysqli_num_rows($result) == 1) {
       $userdata = mysqli_fetch_array($result);
@@ -59,8 +58,7 @@ class User extends Db {
     $emailreg = mysqli_real_escape_string($conn, $email);
     $passwordreg = mysqli_real_escape_string($conn, $password);
 
-    $sql = "SELECT Email FROM User WHERE Email = '$emailreg'";
-    $result = mysqli_query($conn, $sql);
+    $result = $db->getUser($emailreg);
 
     if (mysqli_num_rows($result) > 0) {
       header("Location: register.php?registerfail=1");
@@ -75,9 +73,8 @@ class User extends Db {
       $salt = $this->salt();
       $passwordsalted = ($passwordreg .= $salt);
       $passwordhashed = md5($passwordsalted);
-      $query = "INSERT INTO User(Email, Password, Salt)VALUES('$emailreg', '$passwordhashed', '$salt')";
-      $result = mysqli_query($conn, $query);
+      $db->regUser($emailreg, $passwordhashed, $salt);
+      }
     }
-  }
   }
 }

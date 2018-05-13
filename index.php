@@ -1,38 +1,13 @@
 <?php
-include 'include/models/authorizer.php';
+include 'include/bootstrap.php';
 
-$authorizer = new Authorizer();
 $session = $authorizer->sessionExist('Email');
 
 if (!$session) {
   header('Location: login.php');
+  exit();
+} else {
+  include 'include/views/_header.php';
+  include 'posts.php';
+  include 'include/views/_footer.php';
 }
-
-include 'include/views/_header.php'
-?>
-<!doctype html>
-<html>
-  <head>
-    <link rel="stylesheet" href="assets/css/main.css">
-    <script src="assets/js/main.js"></script>
-    <meta charset="utf-8">
-      <title >Message Board</title>
-  </head>
-  <body>
-    <div>
-    <h1 class="center">Message board</h1>
-    <p class="center">Welcome to the best message board!</p>
-  </div>
-  <?php include 'posts.php' ?>
-  <div>
-    <form class="center" name="form" action="posts-create.php" method="post" onsubmit="return checkPost();">
-      Message : <br>
-      <textarea rows="10" cols="64" class="message" type="text" id ="post" name="post"> </textarea><br>
-      <input type="submit" name="submit" value="submit">
-    </form>
-
-  </body>
-
-  <?php  include 'include/views/_footer.php' ?>
-
-</html>

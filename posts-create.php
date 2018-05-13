@@ -1,14 +1,10 @@
 <?php
 
-include 'include/models/db.php';
-include 'include/models/post.php';
-include 'include/models/authorizer.php';
+include 'include/bootstrap.php';
 
 if (isset($_POST['submit'])) {
-
-
+  
   $post = new Post();
-  $authorizer = new Authorizer();
 
   $message = $_POST['post'];
   $email = $authorizer->get('Email');

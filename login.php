@@ -1,8 +1,6 @@
 <?php
 
-  include 'include/models/authorizer.php';
-
-  $authorizer = new Authorizer();
+  include 'include/bootstrap.php';
   $session = $authorizer->sessionExist('Email');
 
   if ($session) {
@@ -10,5 +8,5 @@
   } else if (isset($_GET['loginfail'])) {
     echo "Email or password is incorrect!";
   }
-  
+
   include 'include/views/login.php';

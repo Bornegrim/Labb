@@ -1,12 +1,8 @@
 <?php
 
-include 'include/models/authorizer.php';
-$authorizer = new Authorizer();
+include 'include/bootstrap.php';
 
 if (isset($_POST['login'])) {
-
-  include 'include/models/db.php';
-  include 'include/models/user.php';
 
   $email = $_POST['email'];
   $password = $_POST['password'];

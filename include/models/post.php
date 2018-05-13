@@ -5,13 +5,12 @@
 
       $db = new Db();
       $conn = $db->connect();
+      $posts = $db->getPosts();
 
-      $sql = "SELECT email, post FROM posts ORDER BY id ASC";
-      $result = mysqli_query($conn, $sql);
-      $numRows = mysqli_num_rows($result);
+      $numRows = mysqli_num_rows($posts);
 
       if ($numRows > 0) {
-        while ($row = $result->fetch_assoc()) {
+        while ($row = $posts->fetch_assoc()) {
           $data[] = $row;
         }
         return $data;
@@ -26,8 +25,7 @@
 
 
       if (!Empty($post)) {
-        $sql = "INSERT INTO posts(post, email)VALUES('$post', '$email')";
-        mysqli_query($conn, $sql);
+        $db->setPosts($message, $email);
       }
     }
   }

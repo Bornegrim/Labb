@@ -1,8 +1,7 @@
 <?php
 
-include 'include/models/authorizer.php';
+include 'include/bootstrap.php';
 
-$authorizer = new Authorizer();
 $session = $authorizer->sessionExist('Email');
 
 if ($session) {

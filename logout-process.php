@@ -1,8 +1,6 @@
 <?php
 
-include 'include/models/authorizer.php';
-
-$authorizer = new Authorizer();
+include 'include/bootstrap.php';
 $destroy = $authorizer-> kill('Email');
 
 header("Location: login.php");
