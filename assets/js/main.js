@@ -8,17 +8,22 @@ $(document).ready(function () {
  })
 });
 
-function validateEmail(email) {
-    var atpos = email.indexOf("@");
-    var dotpos = email.lastIndexOf(".");
-    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
+function validateEmail(x) {
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos>=x.length) {
         return false;
-    } else { return true; }
+    } else {
+      return true;
+    }
+
 }
 
-$(document).ready(function () {
+
+
+$(document).ready(function() {
   $('#loginForm').submit(function(){
-    if(!validateEmail($.trim($('#email')))) {
+    if(!validateEmail('#email')) {
       alert('Please enter a valid email!');
       return false;
     }
@@ -26,5 +31,6 @@ $(document).ready(function () {
         alert('Please enter a password!');
         return false;
       }
+
     })
 });
