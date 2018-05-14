@@ -2,26 +2,6 @@
 
 class User extends Db {
 
-  public function login($email, $password) {
-
-    $db = new Db();
-    $conn = $db->connect();
-
-    $emaillogin = mysqli_real_escape_string($conn, $email);
-    $passwordlogin = mysqli_real_escape_string($conn, $password);
-
-    $result = $db->getUser($emaillogin);
-
-    if (mysqli_num_rows($result) == 1) {
-      $userdata = mysqli_fetch_array($result);
-      $salt = $userdata['Salt'];
-      $hashedpass = $userdata['Password'];
-      $inputpasswordhashed = md5($passwordlogin .= $salt);
-    }
-
-    return ($hashedpass === $inputpasswordhashed);
-  }
-
   private function test_email($data) {
     $atpos = strpos($data, "@");
     $dotpos = strripos($data, ".");
@@ -33,6 +13,29 @@ class User extends Db {
         } else {
           return false;
       }
+    }
+  }
+
+  public function login($email, $password) {
+
+    $db = new Db();
+    $conn = $db->connect();
+
+
+    $emaillogin = mysqli_real_escape_string($conn, $email);
+    $passwordlogin = mysqli_real_escape_string($conn, $password);
+
+    if ($this->test_email($emaillogin)) {
+
+        $result = $db->getUser($emaillogin);
+
+        if (mysqli_num_rows($result) == 1) {
+          $userdata = mysqli_fetch_array($result);
+          $salt = $userdata['Salt'];
+          $hashedpass = $userdata['Password'];
+          $inputpasswordhashed = md5($passwordlogin .= $salt);
+        }
+        return ($hashedpass === $inputpasswordhashed);
     }
   }
 
@@ -71,7 +74,11 @@ class User extends Db {
       $passwordsalted = ($passwordreg .= $salt);
       $passwordhashed = md5($passwordsalted);
       $db->regUser($emailreg, $passwordhashed, $salt);
-      }
+
+    } else {
+      header("Location: register.php");
+      exit();
+    }
     }
   }
 }

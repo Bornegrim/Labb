@@ -8,8 +8,8 @@
     $password = $_POST['passwordreg'];
 
     $user = new User();
-    $user->register($email, $password);
-
+    $register = $user->register($email, $password);
+    
     header("Location: login.php");
     exit();
   } else {

@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="assets/css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="assets/js/main.js"> </script>
-    <script src="assets/js/jQuery 3.3.1.js"> </script>
     <title>Login</title>
   </head>
   <body>
@@ -13,7 +13,7 @@
       <p>Please enter your information</p>
     </div>
     <div class="center">
-      <form class="center" action="login-process.php" method="post" onsubmit="return checkLogin();">
+      <form class="center" action="login-process.php" method="post" id="loginForm">
         Email : <br>
         <input type="text" name="email" id="email"><br>
         Password : <br>

@@ -3,4 +3,3 @@
   <header>
     <button type="button" onclick="location.href='logout-process.php'">Logout</button>
   </header>
-</html>

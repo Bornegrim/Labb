@@ -1,7 +1,14 @@
-<!DOCTYPE html>
-<html lang="swe" dir="ltr">
-  <div>
-    <h1 class="center">Message board</h1>
-    <p class="center">Welcome to the best message board!</p>
-  </div>
-</html>
+<?php $post = new Post();
+$allPosts = $post-> getAllPosts();
+if (count($allPosts) > 0) {
+  echo '<div class="post">';
+  foreach ($allPosts as $post) {
+    echo '<div class="post"> ';
+    echo '<div class="name"> ';
+    echo $post['email'] . ": ";
+    echo "</div>";
+    echo $post['post'];
+    echo "</div>";
+  }
+  echo '</div>';
+}
