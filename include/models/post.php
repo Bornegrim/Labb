@@ -21,10 +21,10 @@
 
       $db = new Db();
       $conn = $db->connect();
-      $post = mysqli_real_escape_string($conn, $message);
+      $post = mysqli_real_escape_string($conn, trim($message));
 
 
-      if (!Empty($post)) {
+      if (!Empty($post) && !($post == " ")) {
         $db->setPosts($message, $email);
       }
     }

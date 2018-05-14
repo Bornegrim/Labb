@@ -36,6 +36,7 @@ class User extends Db {
     }
   }
 
+
   private function salt($length = 10) {
       $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
       $charactersLength = strlen($characters);
@@ -51,10 +52,10 @@ class User extends Db {
     $db = new Db();
     $conn = $db->connect();
 
-    $emailreg = mysqli_real_escape_string($conn, $email);
-    $passwordreg = mysqli_real_escape_string($conn, $password);
+    $emailreg = mysqli_real_escape_string($conn, trim($email));
+    $passwordreg = mysqli_real_escape_string($conn, trim($password));
 
-    $result = $db->getUser($emailreg);
+    $result = $db->getEmail($emailreg);
 
     if (mysqli_num_rows($result) > 0) {
       header("Location: register.php?registerfail=1");
@@ -65,7 +66,7 @@ class User extends Db {
           $emailreg = "";
       }
 
-    if (!Empty($emailreg) && !Empty($passwordreg)) {
+    if (!Empty($emailreg) && (!Empty($passwordreg) && !($passwordreg === " "))) {
       $salt = $this->salt();
       $passwordsalted = ($passwordreg .= $salt);
       $passwordhashed = md5($passwordsalted);

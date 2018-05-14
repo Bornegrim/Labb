@@ -37,4 +37,10 @@
       $sql = "INSERT INTO User(Email, Password, Salt)VALUES('$email', '$pass', '$salt')";
       mysqli_query($this->connect(), $sql);
     }
+
+    protected function getEmail ($email) {
+      $sql = "SELECT Email FROM User WHERE Email = '$email'";
+      $result = mysqli_query($this->connect(), $sql);
+      return $result;
+    }
   }

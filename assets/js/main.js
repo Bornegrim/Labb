@@ -1,32 +1,10 @@
-function checkPost() {
-  var checkIfEmpty = document.getElementById("post").value;
-  var checkIfEmpty = checkIfEmpty.trim();
+var script = document.createElement('script');
+script.src = 'assets/js/jQuery 3.3.1.js';
+script.type = 'text/javascript';
+document.getElementsByTagName('head')[0].appendChild(script);
 
-  if (checkIfEmpty === null || checkIfEmpty === " " || checkIfEmpty === "") {
-    alert("Please write someting in your message");
-    return false;
-  }
-    else {
-      return true;
-    }
-}
-
-function checkLogin() {
-  var email = document.getElementById("email").value;
-  var password = document.getElementById("password").value;
-  var checkEmail = email.trim();
-  var checkpassword = password.trim();
-  var atpos = email.indexOf("@");
-  var dotpos = email.lastIndexOf(".");
-
-  if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) {
-    alert("Not a valid e-mail address");
-    return false;
-  }
-  else if (checkpassword === null || checkpassword === " " || checkpassword === "") {
-    alert("Please Fill in a password");
-    return false;
-  } else {
-    return true;
-  }
-}
+$('#submit').click(function(){
+   if($.trim($('#post').val()) === ""){
+      alert('Post can not be left blank');
+   }
+});
