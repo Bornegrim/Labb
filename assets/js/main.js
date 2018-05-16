@@ -1,4 +1,5 @@
 
+
 $(document).ready(function () {
   $('#postForm').submit(function(){
      if($.trim($('#message').val()) == ""){

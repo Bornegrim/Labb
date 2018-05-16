@@ -1,2 +1,2 @@
-<footer class="center">Created by Lucas Bornegrim</footer>
+<footer>Created by Lucas Bornegrim</footer>
 </html>

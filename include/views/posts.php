@@ -4,6 +4,6 @@
     <script src="assets/js/main.js"></script>
     <meta charset="utf-8">
       <title >Message Board</title>
-      <p class="center">Welcome to the best message board!</p>
+      <p class="welcome">Welcome to the best message board!</p>
   </head>
   <body>

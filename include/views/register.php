@@ -8,20 +8,20 @@
     <title>Registration</title>
   </head>
   <body>
-    <div class="name">
+    <div class="login">
       <h1>Registration</h1>
       <p>Please enter your information</p>
     </div>
-    <div class="center">
-      <form class="reg" action="register-process.php" method="post" onsubmit="return checkLogin();">
-        Email : <br>
-        <input type="text" name="emailreg" id="email"><br>
-        Password : <br>
-        <input type="password" name="passwordreg" id="password"><br>
-        <input type="submit" name="reg" id="reg" value="submit">
+    <div class="login">
+      <form class="reg" action="register-process.php" method="post">
+        <br>
+        <input class="form" type="text" name="emailreg" id="email" placeholder="email"><br>
+        <br>
+        <input class="form" type="password" name="passwordreg" id="password" placeholder="password"><br>
+        <input class="button" type="submit" name="reg" id="reg" value="Register">
       </form>
-      <div class="center">
-        Already have an account: <button type="button" onclick="location.href='login.php'">Login Page</button>
+      <div class="login">
+        Already have an account: <button class="button" type="button" onclick="location.href='login.php'">Login Page</button>
       </div>
     </div>
   </body>

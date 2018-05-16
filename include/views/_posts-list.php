@@ -1,7 +1,7 @@
 <?php $post = new Post();
 $allPosts = $post-> getAllPosts();
 if (count($allPosts) > 0) {
-  echo '<div class="post">';
+  echo '<div class="postbox">';
   foreach ($allPosts as $post) {
     echo '<div class="post"> ';
     echo '<div class="name"> ';
