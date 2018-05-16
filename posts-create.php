@@ -6,7 +6,7 @@ if (isset($_POST['submit'])) {
 
   $post = new Post();
 
-  $message = $_POST['post'];
+  $message = $_POST['message'];
   $email = $authorizer->get('Email');
   $allPosts = $post-> createPost($message, $email);
   }

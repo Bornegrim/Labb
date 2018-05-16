@@ -1,24 +1,35 @@
 body {
-    background-color: pink;
-    font-family: "franklin gothic";
+    background-color: #ECF0F1;
     padding-bottom: 100px;
-    padding-top: 30px;
+    margin: 0;
 }
 
 header {
-  height:24px;
-  width: 100%;
-  background-image: none;
-  background-repeat: repeat;
-  background-attachment: scroll;
-  background-position: 0% 0%;
-  position: fixed;
-  top: 0pt;
-  left: 0pt;
+	background-color: #00A3D9;
+	box-shadow:0 1px 1px #ccc;
+	padding: 20px 40px;
+	height: 80px;
+	box-sizing: border-box;
 }
 
-footer {
+ul {
+	font: 14px Arial, Helvetica, sans-serif;
+	list-style: none;
+	float: right;
+  display: inline-block;
+	margin-left: 15px;
+}
 
+
+
+a {
+	color: #ffffff;
+	text-decoration: none;
+  font-weight: bold;
+}
+
+
+footer {
   height:24px;
   width: 100%;
   background-image: none;
@@ -29,19 +40,18 @@ footer {
   bottom: 0pt;
   left: 0pt;
 }
+
 .center {
   text-align: center;
   margin-top: 10px;
 }
 
 h2 {
-  color: navy;
-
+  color: #00A3D9;
 }
 
 h1 {
-    color: navy;
-
+    color: #ffffff;
 }
 
 input {

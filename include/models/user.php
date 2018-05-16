@@ -8,10 +8,10 @@ class User extends Db {
     if ($atpos === false || $dotpos === false) {
       return false;
     } else {
-        if ($atpos<1 || $dotpos<($atpos+2) || $dotpos+2>=($data.length)) {
-          return true;
-        } else {
+        if ($atpos<1 || $dotpos<($atpos+2) || $dotpos+2>=strlen($data)) {
           return false;
+        } else {
+          return true;
       }
     }
   }
