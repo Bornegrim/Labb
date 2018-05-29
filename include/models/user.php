@@ -19,11 +19,9 @@ class User extends Db {
   public function login($email, $password) {
 
     $db = new Db();
-    $conn = $db->connect();
 
-
-    $emaillogin = mysqli_real_escape_string($conn, $email);
-    $passwordlogin = mysqli_real_escape_string($conn, $password);
+    $emaillogin = $db->escape($email);
+    $passwordlogin = $db->escape($password);
 
     if ($this->test_email($emaillogin)) {
 
@@ -39,7 +37,6 @@ class User extends Db {
     }
   }
 
-
   private function salt($length = 10) {
       $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
       $charactersLength = strlen($characters);
@@ -53,10 +50,9 @@ class User extends Db {
   public function register($email, $password) {
 
     $db = new Db();
-    $conn = $db->connect();
 
-    $emailreg = mysqli_real_escape_string($conn, trim($email));
-    $passwordreg = mysqli_real_escape_string($conn, trim($password));
+    $emailreg = $db->escape(trim($email));
+    $passwordreg = $db->escape(trim($password));
 
     $result = $db->getEmail($emailreg);
 

@@ -2,22 +2,30 @@
 
 require 'include/bootstrap.php';
 
-if (isset($_POST['login'])) {
+if (isset($_SERVER['HTTP_REFERER'])) {
 
-  $email = $_POST['email'];
-  $password = $_POST['password'];
+  $session = $authorizer->sessionExist('Email');
 
-  $user = new User();
-  $login = $user->login($email, $password);
+  if ($session) {
+    header('Location: index.php');
+    exit();
+  }
 
-  if ($login) {
-    $authorizer->set($email);
-    header("Location: index.php");
-    } else {
-      header("Location: login.php?loginfail=1");
-      exit();
+  if (isset($_POST['login'])) {
+
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $user = new User();
+    $login = $user->login($email, $password);
+
+    if ($login) {
+      $authorizer->set($email);
+      header("Location: index.php");
+      } else {
+        header("Location: login.php?loginfail=1");
+        exit();
+        }
       }
-    } else {
-  header("Location: ../login.php");
-  exit();
-}
+      exit();
+    }

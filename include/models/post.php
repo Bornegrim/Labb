@@ -4,28 +4,35 @@
     public function getAllPosts() {
 
       $db = new Db();
-      $conn = $db->connect();
       $posts = $db->getPosts();
 
       $numRows = mysqli_num_rows($posts);
 
       if ($numRows > 0) {
-        while ($row = $posts->fetch_assoc()) {
+        while ($row = mysqli_fetch_assoc($posts)) {
           $data[] = $row;
         }
         return $data;
       }
     }
 
+    protected function getUserID($email) {
+      $db = new Db();
+      $result = $db->getUserID($email);
+      $row = mysqli_fetch_assoc($result);
+
+      return $row['UserID'];
+    }
+
     public function createPost($message, $email) {
 
       $db = new Db();
-      $conn = $db->connect();
-      $post = mysqli_real_escape_string($conn, trim($message));
+      $userID = $this->getUserID($email);
+      $post = $db->escape(trim($message));
 
 
       if (!Empty($post) && !($post == " ")) {
-        $db->setPosts($message, $email);
+        $db->setPosts($message, $userID);
       }
     }
   }

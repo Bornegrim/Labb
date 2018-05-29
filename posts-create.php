@@ -1,15 +1,20 @@
 <?php
 
 require 'include/bootstrap.php';
+if (isset($_SERVER['HTTP_REFERER'])) {
 
-if (isset($_POST['submit'])) {
+  $session = $authorizer->sessionExist('Email');
 
-  $post = new Post();
-
-  $message = $_POST['message'];
-  $email = $authorizer->get('Email');
-  $allPosts = $post-> createPost($message, $email);
+  if (!$session) {
+    header('Location: login.php');
+    exit();
   }
 
-header("Location: index.php");
-exit();
+    $post = new Post();
+
+    $message = $_POST['message'];
+    $email = $authorizer->get('Email');
+    $post->createPost($message, $email);
+
+  exit();
+}

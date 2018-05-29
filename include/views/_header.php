@@ -5,7 +5,7 @@
       <h1 class="header">Message board</h1>
       <ul>
         <li>
-          <a href="http://localhost/Labb/logout-process.php">Logout</a>
+          <a href="/Labb/logout-process.php">Logout</a>
         </li>
       </ul>
     </div>
